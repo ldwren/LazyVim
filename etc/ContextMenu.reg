@@ -1,0 +1,16 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\*\shell\Open with Neovide]
+@="Open with Neovide"
+"Icon"="C:\\Program Files\\Neovide\\Neovide.exe"
+
+[HKEY_CLASSES_ROOT\*\shell\Open with Neovide\command]
+@="\"C:\\Program Files\\Neovide\\Neovide.exe\" \"%1\""
+
+[HKEY_CLASSES_ROOT\Directory\shell\Open in Neovide]
+@="Open in Neovide"
+"Icon"="C:\\Program Files\\Neovide\\Neovide.exe"
+
+[HKEY_CLASSES_ROOT\Directory\shell\Open in Neovide\command]
+@="\"C:\\Program Files\\Neovide\\Neovide.exe\" \"%1\""
+

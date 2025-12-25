@@ -1,0 +1,139 @@
+set nocompatible
+source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/mswin.vim
+behave mswin
+
+" set diffexpr=MyDiff()
+" function MyDiff()
+"   let opt = '-a --binary '
+"   if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+"   if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+"   let arg1 = v:fname_in
+"   if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+"   let arg1 = substitute(arg1, '!', '\!', 'g')
+"   let arg2 = v:fname_new
+"   if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+"   let arg2 = substitute(arg2, '!', '\!', 'g')
+"   let arg3 = v:fname_out
+"   if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+"   let arg3 = substitute(arg3, '!', '\!', 'g')
+"   if $VIMRUNTIME =~ ' '
+"     if &sh =~ '\<cmd'
+"       if empty(&shellxquote)
+"         let l:shxq_sav = ''
+"         set shellxquote&
+"       endif
+"       let cmd = '"' . $VIMRUNTIME . '\diff"'
+"     else
+"       let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+"     endif
+"   else
+"     let cmd = $VIMRUNTIME . '\diff'
+"   endif
+"   let cmd = substitute(cmd, '!', '\!', 'g')
+"   silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
+"   if exists('l:shxq_sav')
+"     let &shellxquote=l:shxq_sav
+"   endif
+" endfunction
+
+packadd! dracula
+syntax enable
+colorscheme dracula
+
+" Working with Unicode
+" https://vim.fandom.com/wiki/Working_with_Unicode
+if has("multi_byte")
+  if &termencoding == ""
+    let &termencoding = &encoding
+  endif
+  set encoding=utf-8
+  setglobal fileencoding=utf-8
+  " Uncomment to have 'bomb' on by default for new files.
+  " Note, this will not apply to the first, empty buffer created at Vim startup.
+  "setglobal bomb
+  set fileencodings=ucs-bom,utf-8,latin1
+endif
+
+
+" 
+"  LDW defined keystrokes
+"
+" {{{ Fold keys
+map  <F7>     zo
+imap <F7>   zo
+map  <F8>     zc
+imap <F8>   zc
+map  <C-F7>   zR
+imap <C-F7> zR
+map  <C-F8>   zM
+imap <C-F8> zM
+map  <M-F8> :Flist
+imap <M-F8> :Flist
+" }}}
+
+" {{{ File write etc
+map    <F9>   :w
+imap   <F9> :w
+map  <M-F9>   ggzM:w:bdgg
+imap <M-F9> ggzM:w:bdgg
+map  <C-F9>   :wall
+imap <C-F9> :wall
+" }}}
+
+" {{{ Copy/Paste etc
+map <C-A> ggVG
+map <C-C> "+y
+map <C-X> "+x
+map <C-V> "+gP
+" }}}
+
+" {{{ Multiple buffers : Next/Previous
+:map <F4> \be
+:map <C-Right> :bn!
+:map <C-Left> :bp!
+" }}}
+
+:map <F3> n
+:map <C-F3> /
+:map <M-F3> [I
+:map <C-M-F3> :v//d
+:vn // y/"
+
+" :h keycodes
+nmap <C-kPlus> :ZoomIn<CR>
+nmap <C-kMinus> :ZoomOut<CR>
+nmap <C-kDivide> :AnsiEsc<CR>
+
+" {{{ General settings
+
+map õ :redo
+
+set fdc=6
+set backupdir=C:\Data\tmp\~Vim\~VimBak
+set viewdir=C:\Data\tmp\~Vim\~VimView
+set dir=C:\Data\tmp\~Vim\~VimSwap
+set undodir=C:\Data\tmp\~Vim\~VimUndo
+
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set foldmethod=marker
+
+set lines=60
+set columns=140
+
+au BufWinEnter ?* loadview
+au BufWinLeave ?* mkview! 
+
+"set guifont=Andale_Mono:h10:cANSI
+set guifont=Consolas:h10:cANSI
+colorscheme LDW
+
+" Use % to switch bounce off matching brackets
+"inoremap ) )<c-o>%<c-o>:sleep 500m<CR><c-o>%<c-o>a
+
+" }}}
+
+let dialect='UK'
+
