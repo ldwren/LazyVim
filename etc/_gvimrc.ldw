@@ -62,7 +62,7 @@ endif
 " {{{ Fold keys
 map  <F7>     zo
 imap <F7>   zo
-map  <F8>     zc
+map  <F8>     z
 imap <F8>   zc
 map  <C-F7>   zR
 imap <C-F7> zR
