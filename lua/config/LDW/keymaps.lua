@@ -90,8 +90,9 @@ vim.o.foldmarker = "{{{,}}}" -- Default markers
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "python" }, -- python buffers only
   callback = function()
-    vim.bo.foldmethod = "marker"
-    vim.bo.foldmarker = "#region,#endregion" -- Python-style markers
+    print("Python file")
+    vim.opt_local.foldmethod = "marker"
+    vim.opt_local.foldmarker = "#region,#endregion" -- Python-style markers
   end,
 })
 
