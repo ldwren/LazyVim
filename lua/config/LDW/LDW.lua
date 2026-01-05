@@ -1,5 +1,6 @@
-require("config.LDW.textsize")
+-- require("config.LDW.font")
 require("config.LDW.keymaps")
+require("config.LDW.textsize")
 
 -- Change start directoru
 -- $env:NVIM_START_DIR="C:\Projects\myapp"
