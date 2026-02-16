@@ -1,5 +1,7 @@
 vim.keymap.set("n", "<leader>wd", ":lua Snacks.Dashboard()<cr>", { desc = "Welcome Dashboard" })
 
+vim.keymap.set("n", "<leader>@", ":lua print(vim.fn.getcwd())<cr>", { desc = "Print Root Folder" })
+
 -- {{{ Buffers
 vim.keymap.set("n", "<F4>", ":Telescope buffers<CR>", { desc = "Buffer explorer" })
 vim.keymap.set("n", "<M-Right>", ":bn!<CR>", { desc = "Next buffer" })

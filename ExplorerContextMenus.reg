@@ -1,8 +1,26 @@
 Windows Registry Editor Version 5.00
 
-[HKEY_CLASSES_ROOT\*\shell\Open with Neovide]
+; Define custom context-menu (right-click) commands for all file types in Windows Explorer.
+[HKEY_CLASSES_ROOT\*\shell\OpenWithNeovide]
 @="Open with Neovide"
 "Icon"="C:\\Program Files\\Neovide\\Neovide.exe"
 
-[HKEY_CLASSES_ROOT\*\shell\Open with Neovide\command]
+[HKEY_CLASSES_ROOT\*\shell\OpenWithNeovide\command]
 @="\"C:\\Program Files\\Neovide\\Neovide.exe\" \"%1\""
+
+; Define custom context-menu (right-click) commands for folders in Windows Explorer.
+[HKEY_CLASSES_ROOT\Directory\shell\OpenWithNeovide]
+@="Open with Neovide"
+"Icon"="C:\\Program Files\\Neovide\\Neovide.exe"
+
+[HKEY_CLASSES_ROOT\Directory\shell\OpenWithNeovide\command]
+@="\"C:\\Program Files\\Neovide\\Neovide.exe\" \"%1\""
+
+; Define custom context-menu (right-click) commands when you click on empty space inside a folder, not on a file or the folder itself.
+[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenWithNeovide]
+@="Open with Neovide"
+"Icon"="\"C:\\Program Files\\Neovide\\Neovide.exe\""
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenWithNeovide\command]
+@="\"C:\\Program Files\\Neovide\\Neovide.exe\" \"%V\""
+
